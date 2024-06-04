@@ -12,9 +12,9 @@ We recommend running the model on a server with at least 32 threads. To run the 
 Example:
 ```
 export JULIA_NUM_THREADS=64 # set number of threads to be used
-home_dir="/path/to/dir/BCELL_PROJECT/"
+home_dir="/path/to/dir/BCR-CD40-integration/"
 modifier="lineages_125_CD40A_H62" # set the file name for outputs
-julia $home_dir'scripts/main2.jl' -v "spawn" -o $home_dir'results/'$modifier'.txt' -i $home_dir'data/steady_'$modifier'.jld' -c $home_dir'data/cells_'$modifier'.jld' >> $home_dir'job-logs/'$modifier'.out'
+julia $home_dir'Simulation_scripts/main3.jl' -v "spawn" -o $home_dir'results/'$modifier'.txt' -i $home_dir'data/steady_'$modifier'.jld' -c $home_dir'data/cells_'$modifier'.jld' >> $home_dir'job-logs/'$modifier'.out'
 
 ```
 ## Simulation Scripts:
