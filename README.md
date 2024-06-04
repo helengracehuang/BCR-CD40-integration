@@ -17,7 +17,7 @@ modifier="lineages_125_CD40A_H62" # set the file name for outputs
 julia $home_dir'scripts/main2.jl' -v "spawn" -o $home_dir'results/'$modifier'.txt' -i $home_dir'data/steady_'$modifier'.jld' -c $home_dir'data/cells_'$modifier'.jld' >> $home_dir'job-logs/'$modifier'.out'
 
 ```
-## Scripts:
+## Simulation Scripts:
 - `main3.jl`: function for running the simulations and saving results
 - `ConstantParams2.jl`: constant parameters, including stimulus doses, stimulus delay, simulation time, scaling factors, etc.
 - `ReactionRates3.jl`: reaction rate parameters for all module
