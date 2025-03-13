@@ -29,6 +29,42 @@ julia $home_dir'Simulation_scripts/main3.jl' -v "spawn" -o $home_dir'results/'$m
 - `SimulateFunctions4+.jl`: pre-simulation and simulation functions
 - `HelperFunctions.jl`: helper functions for Michaelis-Menten and Hill functions, as well as parameter distributions
 
+## Image Analysis Scripts (ImageJ Macro):
+- `Select_AOI_segmentation.ijm`: semi-automate the cell segmentation process based on a selected area of interests (AOI). After automatic thresholding, the code prompts the user to manually inspect the segmentation and adjust if needed. Finally, fluorescence intensity values are measured for the RelA, cRel, and H2B channels for whole cell, nucleus, and cytoplasm.
+    - **Here’s a pseudo-code description of all the processing steps:**
+        1. Duplicate selected AOI region & build a dead cell mask from DRAQ7-APC channel (optional, as only some conditions stained for DRAQ7)
+        2. Build a "WholeCell_Raw" image from 2 or 3 fluorescence channels
+        3. Build a mask of the edges of the imaging grid
+        4. Whole cell segmentation
+            1. apply global auto threshold method (mostly **Otsu**, occasionally **Moments**)
+            2. morphological processing: fill holes + watershed + erosion
+            3. filter based on cell sizes and circularity
+            4. check if ROI falls in black edge mask or dead cell mask
+        5. Nuclear segmentation
+            1. apply global auto threshold method (mostly **Moments**)
+            2. morphological processing: fill holes + watershed + erosion
+            3. check if ROI falls in black edge mask
+        6. Match nucleus with best available whole cell
+            1. has to overlap at least 30%
+            2. delete unmatched nuclei and whole cells
+        7. Clean up nuclei and whole cell, and compute cytoplasm
+        8. Fluorescence intensity measurement
+    - In the output **Results** table from `Select_AOI_segmentation.ijm`:
+        - `Ch` = fluorescence channel
+            - when 3 channels are open:
+                - 1 = cRel-TFP
+                - 2 = H2B-mCherry
+                - 3 = RelA-mVenus
+            - when 4 channels are open (DRAQ7 as far red), then DRAQ7 becomes 1 and the rest are moved fown
+        - `Group` = cell morphology features
+            - 0 = AOI selection (unimportant for quantification)
+            - 1 = whole cell
+            - 2 = nucleus
+            - 3 = cytoplasm
+        - `Label` contains both morphology information + cell ID, but can be modified to include only cell ID
+- `Select_AOI_CellDeath.ijm`: nuclear segmentation based on H2B channel, and dead cell segmentation based on DRAQ7 channel. Final output is the number of total cells, the number of dead cells, and the percentage of dead cells out of all.
+- `Export_RepPNG_wScale.ijm`: export representative images (281 x 281 pixel) in PNG format with scale bar (Figure S3). The representative image is brightness-thresholded based on median background intensity (minimum) and a batch correction factor (maximum). The script includes the min and max values for each channel at each timepoint.
+
 ## Plotting scripts for each figure:
 
 ### Figure 1:
