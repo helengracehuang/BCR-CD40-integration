@@ -67,64 +67,45 @@ julia $home_dir'Simulation_scripts/main3.jl' -v "spawn" -o $home_dir'results/'$m
 
 ## Plotting scripts for each figure:
 
-### Figure 1:
+Source data for all panels noted “Excel sheets” are available on BioStudies public database ([www.ebi.ac.uk/biostudies](http://www.ebi.ac.uk/biostudies)) . See  “Data Availability” section of the corresponding paper for accession numbers.
 
-**Panel C,D**: `NFkB trajectories (dose response + composition).ipynb`
-
-**Panel E,G**: `NFkB trajectories (ignore cell fates).ipynb` to plot NFkB trajectories from intermediate .jld files
-
-### Figure 2:
-
-**Panel B**: `calcModelFit.R` to plot the population dynamics by generation
-
-**Panel C**: Excel sheets
-
-**Panel F**: `calcModelFit.R` to calculate RMSD between model vs. experiment, then `RMSDheatmap.R` to plot from the tabulated results
-
-### Figure 3:
-
-**Panel A,C**: `calcModelFit.R` to plot the population dynamics by generation
-
-**Panel B,D**: Excel sheets
-
-**Panel E**: `calcModelFit.R` to calculate RMSD between model vs. experiment, then used Excel to tabulate the results and plot
-
-**Panel F,G,I,J**: Excel sheets
-
-**Panel H,K**: `calcReproducibility.R` to calculate RMSD between experimental replicates, then used Excel to tabulate the results and plot
-
-### Figure 4:
-
-**Panel B,D**: `calcModelFit.R` to plot the population dynamics by generation
-
-**Panel C,E**: Excel sheets
-
-**Panel F**: `calcModelFit.R` to calculate RMSD between model vs. experiment, then used Excel to tabulate the results and plot
-
-**Panel G-J**: `NFkB trajectories (cell fates low vs high).ipynb` to plot NFkB trajectories from intermediate .jld files
-
-### Figure 5:
-
-**Panel A**: `calcModelFit.R` to plot the population dynamics by generation
-
-**Panel B,C,D**: `plotTd2.R` for both Kaplan-Meier curve for each CD40 and BCR dose (B,C) and the bar graph of # survived cells at 24hrs (D)
-
-**Panel E-J**: `plotFateLandscape.R` for the fate map. Need to adjust the code to specify with or without AICD
-
-**Panel K-M**: `plotFateLandscapeDiff.R` to plot the difference between 2 fate maps from E-J
-
-### Figure 6:
-
-**Panel B**: `plotPopulationSize2.R` to plot the relative population size over time
-
-**Panel C**: Excel sheets
-
-### Figure 7:
-
-**Panel B**: `BclXL trajectories (colored line).ipynb` to plot single-cell Bcl-xL trajectories, colored with caspase 8 level
-
-**Panel C**: `BclXL trajectories (colored line).ipynb` to plot single-cell Bcl-xL trajectories, colored with NFkB level
-
+- **Figure 1:**
+    - **Panel C,D**: `NFkB trajectories (dose response + composition).ipynb`
+    - **Panel E,G**: `NFkB trajectories (ignore cell fates).ipynb` to plot NFkB trajectories from intermediate .jld files
+    - **Panel F,H**: Excel sheets
+- **Figure 2:**
+    - **Panel B**: `calcModelFit.R` to plot the population dynamics by generation
+    - **Panel C**: Excel sheets
+    - **Panel D,E**: `calcModelFit.R` to calculate RMSD between model vs. experiment, then `RMSDheatmap.R` to plot the heatmap from Excel-tabulated results
+- **Figure 3:**
+    - **Panel A,C**: `calcModelFit.R` to plot the population dynamics by generation
+    - **Panel B,D**: Excel sheets
+    - **Panel E**: `calcModelFit.R` to calculate RMSD between model vs. experiment, then used Excel to tabulate the results and plot
+    - **Panel F,G,I,J**: Excel sheets
+    - **Panel H,K**: `calcReproducibility.R` to calculate RMSD between experimental replicates, then used Excel to tabulate the results and plot
+    - **Panel L**: Excel sheets
+    - **Panel M**: `plotImageAnalysis5.R` to plot cell area (from Microscopy) in line plots with error bars
+- **Figure 4:**
+    - **Panel B**: `calcModelFit.R` to plot the population dynamics by generation
+    - **Panel C**: Excel sheets
+    - **Panel D**: `calcModelFit.R` to calculate RMSD between model vs. experiment, then used Excel to tabulate the results and plot
+    - **Panel E,G**: `NFkB trajectories (cell fates low vs high).ipynb` to plot NFkB trajectories from intermediate .jld files
+    - **Panel F,H**: `plotImageAnalysis8.R` to plot RelA and cRel fluorescence (from Microscopy) in violin and line plots overlayed with Western blot quantification
+- **Figure 5:**
+    - **Panel A**: `calcModelFit.R` to plot the population dynamics by generation
+    - **Panel B**: Excel sheets
+    - **Panel C,D,E**: `plotTd2.R` for both Kaplan-Meier curve for each CD40 and BCR dose (C,D) and the bar graph of # survived cells at 24hrs (E)
+    - **Panel F-K**: `plotFateLandscape.R` for the fate map. Need to adjust the code to specify with or without AICD
+    - **Panel L-N**: `plotFateLandscapeDiff.R` to plot the difference between 2 fate maps from F-K
+- **Figure 6:**
+    - **Panel B**: `plotPopulationSize2.R` to plot the relative population size over time
+    - **Panel C**: Excel sheets
+- **Figure 7:**
+    - **Panel B**: `BclXL trajectories (colored line).ipynb` to plot single-cell Bcl-xL trajectories, colored with caspase 8 level
+    - **Panel C**: `BclXL trajectories (colored line).ipynb` to plot single-cell Bcl-xL trajectories, colored with NFkB level
+    - **Panel D**: `BclXL trajectories (heatmap).ipynb` (last 8 blocks) to plot the violin plot of RelA, cRel, and Bcl-xL peak activity between dead and live cells
+    - **Panel E-I**: `plotFateLandscape.R` for the fate map. Need to adjust the code to specify for with AICD
+    - **Panel G-J**: `plotFateLandscapeDiff.R` to plot the difference between 2 fate maps from E-I
 **Panel D**: `BclXL trajectories (heatmap).ipynb` (last 8 blocks) to plot the violin plot of RelA, cRel, and Bcl-xL peak activity between dead and live cells
 
 **Panel E-I**: `plotFateLandscape.R` for the fate map. Need to adjust the code to specify for with AICD
