@@ -106,8 +106,6 @@ Source data for all panels noted “Excel sheets” are available on BioStudies 
     - **Panel D**: `BclXL trajectories (heatmap).ipynb` (last 8 blocks) to plot the violin plot of RelA, cRel, and Bcl-xL peak activity between dead and live cells
     - **Panel E-I**: `plotFateLandscape.R` for the fate map. Need to adjust the code to specify for with AICD
     - **Panel G-J**: `plotFateLandscapeDiff.R` to plot the difference between 2 fate maps from E-I
-**Panel D**: `BclXL trajectories (heatmap).ipynb` (last 8 blocks) to plot the violin plot of RelA, cRel, and Bcl-xL peak activity between dead and live cells
-
-**Panel E-I**: `plotFateLandscape.R` for the fate map. Need to adjust the code to specify for with AICD
-
-**Panel G-J**: `plotFateLandscapeDiff.R` to plot the difference between 2 fate maps from E-I
+    - **Panel D**: `BclXL trajectories (heatmap).ipynb` (last 8 blocks) to plot the violin plot of RelA, cRel, and Bcl-xL peak activity between dead and live cells
+    - **Panel E-I**: `plotFateLandscape.R` for the fate map. Need to adjust the code to specify for with AICD
+    - **Panel G-J**: `plotFateLandscapeDiff.R` to plot the difference between 2 fate maps from E-I
