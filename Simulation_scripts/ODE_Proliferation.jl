@@ -145,13 +145,13 @@ function computeProlifFluxes!(concentration, reactionFlux, Srates, phase)
         reactionFlux[IEP, DEPHOSPHORYLATION] = Srates[IEP, DEPHOSPHORYLATION] * concentration[PPX] * michaelisMenten(K = 0.01, X = concentration[IEP]);
         # J07. 0 --CycB--> Cdc20T : protein synthesis
         reactionFlux[CDC20, SYNTHESIS] = EPS * (Srates[CDC20, BASALSYNTHESIS] + Srates[CDC20, SYNTHESIS] * concentration[CYCB]);
-        # J08. Cdc20T ----> 0 : protein degradation
+        # J08. Cdc20 ----> 0 : protein degradation
         reactionFlux[CDC20, DECAY] = Srates[CDC20, DECAY] * concentration[CDC20];
         # J09. 0 --IEP--> Cdc20 : protein synthesis
         reactionFlux[CDC20, PHOSPHORYLATION] = Srates[CDC20, PHOSPHORYLATION] * concentration[IEP] * michaelisMenten(K = 0.005, X = (concentration[CDC20] - concentration[CDC20P]));
-        # J10. Cdc20 --Cdc20--> 0 : protein autocatalytic degradation
+        # J10. Cdc20p --Cdc20--> 0 : protein autocatalytic degradation
         reactionFlux[CDC20P, DEPHOSPHORYLATION] = Srates[CDC20P, DEPHOSPHORYLATION] * michaelisMenten(K = 0.005, X = concentration[CDC20P]);
-        # J11. Cdc20 ----> 0 : protein degradation
+        # J11. Cdc20p ----> 0 : protein degradation
         reactionFlux[CDC20P, DECAY] = Srates[CDC20, DECAY] * concentration[CDC20P];
         # J12. 0 --Cdc20--> Cdh1 : protein activation
         reactionFlux[CDH1, PHOSPHORYLATION] = concentration[CDH1] > 1.0 ? 0.0 : ((Srates[CDH1, BASALSYNTHESIS] + Srates[CDH1, PHOSPHORYLATION] * concentration[CDC20P]) * michaelisMenten(K = 0.01, X = (1.0 - concentration[CDH1])));
