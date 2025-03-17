@@ -143,7 +143,7 @@ function computeProlifFluxes!(concentration, reactionFlux, Srates, phase)
         reactionFlux[IEP, PHOSPHORYLATION] = Srates[IEP, PHOSPHORYLATION] * concentration[CYCB] * michaelisMenten(K = 0.01, X = (1.0 - concentration[IEP]));
         # J06. IEP --PPX--> 0 : intermediate enzyme degradation
         reactionFlux[IEP, DEPHOSPHORYLATION] = Srates[IEP, DEPHOSPHORYLATION] * concentration[PPX] * michaelisMenten(K = 0.01, X = concentration[IEP]);
-        # J07. 0 --CycB--> Cdc20T : protein synthesis
+        # J07. 0 --CycB--> Cdc20 : protein synthesis
         reactionFlux[CDC20, SYNTHESIS] = EPS * (Srates[CDC20, BASALSYNTHESIS] + Srates[CDC20, SYNTHESIS] * concentration[CYCB]);
         # J08. Cdc20 ----> 0 : protein degradation
         reactionFlux[CDC20, DECAY] = Srates[CDC20, DECAY] * concentration[CDC20];
