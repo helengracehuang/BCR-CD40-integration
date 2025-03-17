@@ -1,5 +1,6 @@
 # BCR-CD40-integration Model
-"A molecular network model reveals non-monotonic integration of BCR and CD40 signals for controlling B-cell proliferation"
+Corresponding paper: Synergy and antagonism in the integration of BCR and CD40 signals that control B-cell proliferation
+[https://pmc.ncbi.nlm.nih.gov/articles/PMC11312454/](https://pmc.ncbi.nlm.nih.gov/articles/PMC11312454/)
 
 A combination of Receptor, NFkB, Proliferation, and Apoptosis modules.
 We recommend running the model on a server with at least 32 threads. To run the model, one can run the main2.jl file. There are a few options one can set:
