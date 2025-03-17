@@ -9,20 +9,20 @@ function computeProlifFluxes!(concentration, reactionFlux, Srates, phase)
         #-------------------------------------------------
         # MODULE 1: Growth and division (tMyc-Myc) module
         #-------------------------------------------------
-        # D01. 0 --NFkB--> tMyc : Myc transcript induction by NFkB
+        # C01. 0 --NFkB--> tMyc : Myc transcript induction by NFkB
         # reactionFlux[TMYC, SYNTHESIS] = Srates[TMYC, SYNTHESIS] * hillActivation(Ka = 1.0, na = 2.0, X = ((concentration[NA50] + concentration[NC50])/MYCTHR));
         # reactionFlux[TMYC, SYNTHESIS] = Srates[TMYC, SYNTHESIS] * hillActivation(Ka = 1.0, na = 2.0, X = ((0.45*concentration[NA50] + 0.45*concentration[NC50] + 0.1*concentration[IKK])/MYCTHR));
         reactionFlux[TMYC, SYNTHESIS] = Srates[TMYC, SYNTHESIS] * hillActivation(Ka = 1.0, na = 2.0, X = ((0.45*(concentration[NA50]+concentration[NA52]) + 0.45*(concentration[NC50]+concentration[NC52]) + 0.1*concentration[IKK])/MYCTHR));
-        # D02. tMyc ----> 0 : mRNA degradation
+        # C02. tMyc ----> 0 : mRNA degradation
         reactionFlux[TMYC, DECAY] = Srates[TMYC, DECAY] * concentration[TMYC];
-        # D03. tMyc ----> Myc : Synthesis by translation
+        # C03. tMyc ----> Myc : Synthesis by translation
         reactionFlux[MYC, TRANSLATION] = EPS * Srates[MYC, TRANSLATION] * concentration[TMYC];
         # initialize Myc : Synthesis
         reactionFlux[MYC, SYNTHESIS] = 0;
-        # D04. 0 --IRF4--> Myc : Induction by IRF4
+        # C04. 0 --IRF4--> Myc : Induction by IRF4
         reactionFlux[MYC, SYNTHESIS] += 0;
         # reactionFlux[MYC, SYNTHESIS] += Srates[MYC, SYNTHESIS] * hillActivation(Ka = Srates[MYC].Ka[IRF4], na = Srates[MYC].na[IRF4], X = concentration[IRF4]);
-        # D05. Myc ----> 0 : Protein degradation
+        # C05. Myc ----> 0 : Protein degradation
         reactionFlux[MYC, DECAY] = Srates[MYC, DECAY] * concentration[MYC];
 
         #-----------------------------------------------------------
