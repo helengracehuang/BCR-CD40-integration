@@ -133,8 +133,6 @@ data_noDelay_withAICD <- subset(collapsedDataTable, CD40_delay == 0)
 data_1hrDelay_withAICD <- subset(collapsedDataTable, CD40_delay == 1)
 data_8hrDelay_withAICD <- subset(collapsedDataTable, CD40_delay == 8)
 
-data_noDelay_withAICD[10,4:6] = data_noDelay_withAICD[15,4:6]
-
 
 # =============================================================
 # # plotting cell survival landscape at survivalT1 hrs
