@@ -88,9 +88,6 @@ data_noDelay <- subset(collapsedDataTable, CD40_delay == 0)
 data_1hrDelay <- subset(collapsedDataTable, CD40_delay == 1)
 data_8hrDelay <- subset(collapsedDataTable, CD40_delay == 8)
 
-if (modifier == "withAICD") {
-  data_noDelay[10,4:6] = data_noDelay[15,4:6]
-}
 # =============================================================
 # # plotting cell survival landscape at survivalT1 hrs
 # plot <- levelplot(liveT1 / Nfounder ~ CD40L_dose * Antigen_dose, data_noDelay, col.regions = COLOR_SCHEME, main = paste("Cell survival rate at ", survivalT1, "hrs",sep=""),
