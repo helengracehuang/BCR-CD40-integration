@@ -1,5 +1,5 @@
 # BCR-CD40-integration Model
-## Corresponding paper: Synergy and antagonism in the integration of BCR and CD40 signals that control B-cell proliferation
+**Corresponding paper:** Synergy and antagonism in the integration of BCR and CD40 signals that control B-cell proliferation
 [https://pmc.ncbi.nlm.nih.gov/articles/PMC11312454/](https://pmc.ncbi.nlm.nih.gov/articles/PMC11312454/)
 
 A combination of Receptor, NFkB, Proliferation, and Apoptosis modules.
